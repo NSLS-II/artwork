@@ -7,6 +7,6 @@ limitation, the images shall not be utilized to endorse, or imply
 endorsement of any product or service.  Images may not be digitally 
 manipulated in any way except to adjust size, crop or color attributes 
 to optimize it for print production.  The credit line "Courtesy 
-of Brookhaven National Laboratory" shall be included in the photo caption 
-or as a separate photo credit adjacent to the image.  
+of Brookhaven National Laboratory" shall be included with the images 
+or as a separate credit adjacent to the image.  
 Usage of the image constitutes your agreement with these terms.
