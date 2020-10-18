@@ -2,9 +2,6 @@
 # set -x
 set -u
 
-#hostname=$(hostname)
-#hostname="xf23id1"
-hostname="xf23id2"
 wallpaper_dir="/usr/share/nsls2/wallpapers"
 wallpaper_type="Dark"
 wallpaper_default="wallpaper.jpg"
