@@ -18,23 +18,24 @@ all:
 
 .PHONY: .install-autostart
 .install-autostart: $(autostart)
-	install -m 644 -t $(sysconfdir)/xdg/autostart $?
+	mkdir -p $(DESTDIR)$(sysconfdir)/xdg/autostart
+	install -m 644 -t $(DESTDIR)$(sysconfdir)/xdg/autostart $?
 
 .PHONY: .install-scripts
 .install-scripts: $(scripts)
-	mkdir -p $(libexecdir)/nsls2
-	install -m 755 -t $(libexecdir)/nsls2 $?
+	mkdir -p $(DESTDIR)$(libexecdir)/nsls2
+	install -m 755 -t $(DESTDIR)$(libexecdir)/nsls2 $?
 
 .PHONY: .install-tabs
 .install-tabs: $(tabs)
-	mkdir -p $(datadir)/tabs
-	install -m 644 -t $(datadir)/tabs $?
+	mkdir -p $(DESTDIR)$(datadir)/tabs
+	install -m 644 -t $(DESTDIR)$(datadir)/tabs $?
 
 .PHONY: .install-wallpapers
 .install-wallpapers: $(wallpapers)
-	mkdir -p $(datadir)/wallpapers
-	install -m 644 -t $(datadir)/wallpapers $?
-	cd ${datadir}/wallpapers && ln -sf $(generic_wallpaper) wallpaper.jpg
+	mkdir -p $(DESTDIR)$(datadir)/wallpapers
+	install -m 644 -t $(DESTDIR)$(datadir)/wallpapers $?
+	cd $(DESTDIR)${datadir}/wallpapers && ln -sf $(DESTDIR)$(generic_wallpaper) wallpaper.jpg
 
 .PHONY: install
 install: .install-wallpapers .install-tabs .install-scripts .install-autostart
