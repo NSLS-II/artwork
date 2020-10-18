@@ -18,7 +18,7 @@ steps:
 - script: |
     make -p build
     gbp buildpackage \
-      --git-debian-branch-main \
+      --git-debian-branch=main \
       -uc -sc \
       --git-export-dir=build \
       --git-tarball-dir=build
