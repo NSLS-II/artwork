@@ -1,0 +1,15 @@
+Source: artwork-nsls2
+Section: unknown
+Priority: optional
+Maintainer: Stuart B. Wilkins <swilkins@bnl.gov>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.4.1
+Homepage: https://github.com/NSLS-II/artwork
+Vcs-Browser: https://github.com/NSLS-II/artwork
+Vcs-Git: https://github.com/NSLS-II/artwork.git
+
+Package: artwork-nsls2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Wallpaper and Artwork for NSLS-II
+    Wallpaper and artwork collection for use at NSLS-II
