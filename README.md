@@ -28,5 +28,7 @@ $ make install
 The debian package can be built from this git repository by executing:
 
 ```shell
-$ gbp buildpackage --git-debian-branch=main -uc -us
+$ gbp buildpackage --git-debian-branch=main -uc -us  --git-export-dir=build
 ```
+
+which will build the package in the directory `./build`
