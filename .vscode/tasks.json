@@ -28,7 +28,7 @@
             "args" : [
                 "--force-download",
                 "--destdir",
-                "build"
+                "${workspaceFolder}/build"
             ],
             "dependsOn": "Make Build Directory"
         },{
