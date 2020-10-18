@@ -12,4 +12,3 @@ Package: artwork-nsls2
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Wallpaper and Artwork for NSLS-II
-    Wallpaper and artwork collection for use at NSLS-II
