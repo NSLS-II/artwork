@@ -38,7 +38,7 @@
             "command": "gbp",
             "args" : [
                 "buildpackage",
-                "--git-debian-branch=master",
+                "--git-debian-branch=main",
                 "-uc",
                 "-us",
                 "--git-tarball-dir=${workspaceFolder}/build",
