@@ -1,5 +1,5 @@
 Source: artwork-nsls2
-Section: unknown
+Section: contrib/artwork
 Priority: optional
 Maintainer: Stuart B. Wilkins <swilkins@bnl.gov>
 Build-Depends: debhelper-compat (= 12)
@@ -12,3 +12,5 @@ Package: artwork-nsls2
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Wallpaper and Artwork for NSLS-II
+    Artwork for NSLS-II beamlines, including scripts for setting
+    wallpaper on different desktops on startup
