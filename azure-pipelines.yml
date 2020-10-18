@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    sudo apt-get update
+    sudo apt-get install git-buildpackage
+  displayName: 'Install Dependencies'
+
+- script: |
+    make -p build
+    gbp buildpackage \
+      --git-debian-branch-main \
+      -uc -sc \
+      --git-export-dir=build \
+      --git-tarball-dir=build
+  displayName: 'Build Debian Package'
