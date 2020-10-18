@@ -26,7 +26,7 @@ steps:
       --git-debian-branch=main \
       --git-ignore-new \
       --git-ignore-branch \
-      -uc -sc \
+      -uc -us \
       --git-export-dir=build \
       --git-tarball-dir=build
   displayName: 'Build Debian Package'
