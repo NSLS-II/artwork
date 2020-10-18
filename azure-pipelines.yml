@@ -24,6 +24,8 @@ steps:
     make -p build
     gbp buildpackage \
       --git-debian-branch=main \
+      --git-ignore-new \
+      --git-ignore-branch \
       -uc -sc \
       --git-export-dir=build \
       --git-tarball-dir=build
