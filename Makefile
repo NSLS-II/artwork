@@ -30,6 +30,7 @@ all:
 .install-setscript: bin/$(setscript)
 	mkdir -p $(DESTDIR)$(libexecdir)/nsls2
 	cat $< | envsubst '$${wallpaper_dir}' > $(DESTDIR)$(libexecdir)/nsls2/$(setscript)
+	chmod 755 $(DESTDIR)$(libexecdir)/nsls2/$(setscript)
 
 .PHONY: .install-tabs
 .install-tabs: $(tabs)
