@@ -44,7 +44,6 @@
                 "--git-tarball-dir=${workspaceFolder}/build",
                 "--git-export-dir=${workspaceFolder}/build"
             ],
-            "dependsOn": "Fetch Upstream Tarball"
         }
     ]
 }
