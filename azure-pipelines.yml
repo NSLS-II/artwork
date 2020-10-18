@@ -4,11 +4,11 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- main
 - releases/*
 
 pr:
-- master
+- main
 - releases/*
 
 pool:
