@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=set-wallpaper
+NoDisplay=true
+Exec=${libexecdir}/nsls2/set-wallpaper
+Terminal=false
