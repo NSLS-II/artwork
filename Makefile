@@ -35,7 +35,7 @@ all:
 .install-wallpapers: $(wallpapers)
 	mkdir -p $(DESTDIR)$(datadir)/wallpapers
 	install -m 644 -t $(DESTDIR)$(datadir)/wallpapers $?
-	cd $(DESTDIR)${datadir}/wallpapers && ln -sf $(DESTDIR)$(generic_wallpaper) wallpaper.jpg
+	cd $(DESTDIR)${datadir}/wallpapers && ln -sf $(generic_wallpaper) wallpaper.jpg
 
 .PHONY: install
 install: .install-wallpapers .install-tabs .install-scripts .install-autostart
