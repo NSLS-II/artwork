@@ -1,0 +1,84 @@
+#!/bin/bash
+# set -x
+set -u
+
+#hostname=$(hostname)
+#hostname="xf23id1"
+hostname="xf23id2"
+wallpaper_dir="/usr/share/nsls2/wallpapers"
+wallpaper_type="Dark"
+wallpaper_default="wallpaper.jpg"
+
+function link_wallpaper
+{
+    local path=$(dirname "$1")
+    local name=$(basename "$1")
+    cd "${path}" && echo $(ln -svf ${name} ${wallpaper_default})
+}
+
+function set_default
+{
+    local file="$(find_wallpaper NSLS-II_Generic)"
+    echo "Setting default NSLS-II wallpaper -> ${file}"
+    link_wallpaper "${file}"
+    exit 0
+}
+
+function set_wallpaper
+{
+    local file="$1"
+    echo "Setting wallpaper -> ${file}"
+    link_wallpaper "${file}"
+    exit 0
+}
+
+function find_wallpaper()
+{
+    local beamline="$1"
+    find ${wallpaper_dir} -name "${beamline}_*${wallpaper_type}.jpg" -print -quit
+}
+
+if [ "${hostname:0:2}" != "xf" ]; then
+    echo "Hostname not NSLS-II standard, setting default...."
+    set_default
+fi
+
+cell=${hostname:2:2}
+if [ "${cell:0:1}" = "0" ]; then
+    # Remove
+    cell=${cell:1:1}
+fi
+source=$(echo ${hostname:4:2} | tr '[a-z]' '[A-Z]')
+port="${cell}-${source}"
+echo "Port   = ${port}"
+
+branch=${hostname:6:1}
+if [ "x${branch}" != "x1" ] && [ "x${branch}" != "x2" ]; then
+    # Invalid branch .. probably a hutch number
+    branch=
+else
+    echo "Branch = ${branch}"
+fi
+
+wallpaper=
+
+if [ "${source}" == "ID" ] || [ "${source}" == "IR" ]; then
+    if [ "${branch}" == "1" ] || [ "${branch}" == "2" ]; then
+        wallpaper=$(find_wallpaper "${port}-${branch}")
+    fi
+
+    if [ "x${wallpaper}" == "x" ]; then
+        # Sigh... no branch lets try without that branch
+        wallpaper=$(find_wallpaper "${port}")
+    fi
+elif [ "${source}" == "BM" ]; then
+    wallpaper=$(find_wallpaper "${port}")
+fi
+
+# Do we have a valid wallpaper
+if [ "x${wallpaper}" == "x" ]; then
+    # No wallpaper found. Set default
+    set_default
+else
+    set_wallpaper "${wallpaper}"
+fi
