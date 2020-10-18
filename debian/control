@@ -1,5 +1,5 @@
 Source: artwork-nsls2
-Section: contrib/artwork
+Section: artwork
 Priority: optional
 Maintainer: Stuart B. Wilkins <swilkins@bnl.gov>
 Build-Depends: debhelper-compat (= 12)
