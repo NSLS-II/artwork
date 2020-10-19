@@ -38,6 +38,8 @@ function find_wallpaper()
     find ${wallpaper_dir} -name "${beamline}_*${wallpaper_type}.jpg" -print -quit
 }
 
+echo "$*"
+
 if [ "${hostname:0:2}" != "xf" ]; then
     echo "Hostname not NSLS-II standard, setting default...."
     set_default
