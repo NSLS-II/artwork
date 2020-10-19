@@ -8,7 +8,7 @@ function link_wallpaper
     local name=$(basename "$1")
     local path=$(dirname "${_path}")
     local type=$(basename "${_path}")
-    cd "${path}" && ln -svf ${name} ${type}/${wallpaper_default}
+    cd "${path}" && ln -svf ${type}/${name} ${wallpaper_default}
 }
 
 function set_default
