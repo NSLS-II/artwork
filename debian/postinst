@@ -40,11 +40,15 @@ if [ "$#" -ge "1" ]; then
     if [ "$1" == "configure" ]; then
         # We are running in as the postinst script
         hostname=$(hostname -f | cut -d '.' -f 1)
+        echo "Running postinst."
+        echo "Setting wallpaper automatically based on hostname ${hostname} ..."
     else
         hostname="$1"
+        echo "Setting wallpaper from provided \"hostname\" ${hostname} ..."
     fi
 else
     hostname=$(hostname -f | cut -d '.' -f 1)
+    echo "Setting wallpaper automatically based on hostname ${hostname} ..."
 fi
 
 wallpaper_dir="/usr/share/nsls2/wallpapers"
