@@ -2,11 +2,6 @@
 # set -x
 set -u
 
-hostname=$(hostname -f | cut -d '.' -f 1)
-wallpaper_dir="/usr/share/nsls2/wallpapers"
-wallpaper_type="Dark"
-wallpaper_default="wallpaper.jpg"
-
 function link_wallpaper
 {
     local _path=$(dirname "$1")
@@ -38,7 +33,23 @@ function find_wallpaper()
     find ${wallpaper_dir} -name "${beamline}_*${wallpaper_type}.jpg" -print -quit
 }
 
-echo "$*"
+echo "$#"
+echo "$1"
+
+if [ "$#" -ge "1" ]; then
+    if [ "$1" == "configure" ]; then
+        # We are running in as the postinst script
+        hostname=$(hostname -f | cut -d '.' -f 1)
+    else
+        hostname="$1"
+    fi
+else
+    hostname=$(hostname -f | cut -d '.' -f 1)
+fi
+
+wallpaper_dir="/usr/share/nsls2/wallpapers"
+wallpaper_type="Dark"
+wallpaper_default="wallpaper.jpg"
 
 if [ "${hostname:0:2}" != "xf" ]; then
     echo "Hostname not NSLS-II standard, setting default...."
