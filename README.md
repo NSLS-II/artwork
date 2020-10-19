@@ -1,5 +1,7 @@
 # NSLS-II Beamline Artwork
 
+[![Build Status](https://dev.azure.com/nsls-ii/artwork/_apis/build/status/NSLS-II.artwork?branchName=main)](https://dev.azure.com/nsls-ii/artwork/_build/latest?definitionId=6&branchName=main)
+
 ---
 
 Permission is granted to use the Brookhaven images in this repository.
