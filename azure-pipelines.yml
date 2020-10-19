@@ -35,7 +35,7 @@ steps:
 
 - task: GithubRelease@0
   displayName: 'Attach debian package to release'
-  condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/v')
+#  condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/v')
   inputs:
     gitHubConnection: NSLS-II
     repositoryName: NSLS-II/artwork
