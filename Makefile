@@ -7,12 +7,13 @@ exec_prefix = $(prefix)
 libexecdir = $(exec_prefix)/libexec
 
 
-wallpapers = $(wildcard wallpapers/*.jpg)
+wallpapers_beamlines  = $(wildcard wallpapers/beamlines/*.jpg)
+wallpapers_generic    = $(wildcard wallpapers/generic/*.jpg)
 tabs = $(wildcard tabs/*.png)
 setscript = set-wallpaper
 autostart = set-wallpaper.desktop
 
-generic_wallpaper = NSLS-II_Generic_Desktop_Wallpaper_Dark.jpg
+generic_wallpaper = generic/NSLS-II_Generic_Desktop_Wallpaper_Dark.jpg
 wallpaper_dir = $(datadir)/wallpapers
 
 export wallpaper_dir
@@ -39,8 +40,10 @@ all:
 
 .PHONY: .install-wallpapers
 .install-wallpapers: $(wallpapers)
-	mkdir -p $(DESTDIR)$(wallpaper_dir)
-	install -m 644 -t $(DESTDIR)$(wallpaper_dir) $?
+	mkdir -p $(DESTDIR)$(wallpaper_dir)/generic
+	mkdir -p $(DESTDIR)$(wallpaper_dir)/beamlines
+	install -m 644 -t $(DESTDIR)$(wallpaper_dir)/generic $(wallpapers_generic)
+	install -m 644 -t $(DESTDIR)$(wallpaper_dir)/beamlines $(wallpapers_beamlines)
 	cd $(DESTDIR)$(wallpaper_dir) && ln -sf $(generic_wallpaper) wallpaper.jpg
 
 .PHONY: install

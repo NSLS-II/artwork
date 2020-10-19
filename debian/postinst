@@ -9,9 +9,11 @@ wallpaper_default="wallpaper.jpg"
 
 function link_wallpaper
 {
-    local path=$(dirname "$1")
+    local _path=$(dirname "$1")
     local name=$(basename "$1")
-    cd "${path}" && echo $(ln -svf ${name} ${wallpaper_default})
+    local path=$(dirname "${_path}")
+    local type=$(basename "${_path}")
+    cd "${path}" && ln -svf ${name} ${type}/${wallpaper_default}
 }
 
 function set_default
