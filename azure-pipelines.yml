@@ -37,7 +37,7 @@ steps:
   displayName: 'Attach debian package to release'
 #  condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/v')
   inputs:
-    gitHubConnection: NSLS-II
+    gitHubConnection: github.com_stuwilkins
     repositoryName: NSLS-II/artwork
     assets: build/artwork-nsls2_0.1.0_amd64.deb
     action: edit
