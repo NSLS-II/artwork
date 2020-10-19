@@ -1,4 +1,4 @@
-artwork-nsls2 (0.1.2) UNRELEASED; urgency=medium
+artwork-nsls2 (0.1.3) UNRELEASED; urgency=medium
 
   [ Stuart B. Wilkins ]
   * Initial debian test
@@ -47,11 +47,6 @@ artwork-nsls2 (0.1.2) UNRELEASED; urgency=medium
   * Corrected tag name
   * Add condition to build only on tag
   * REL: v0.1.1
+  * REL: v0.1.3
 
- -- Stuart B. Wilkins <swilkins@catbert.nsls2.bnl.gov>  Sun, 18 Oct 2020 21:27:23 -0400
-
-artwork-nsls2 (0.1.0) unstable; urgency=medium
-
-  * Initial Release.
-
- -- Stuart B. Wilkins <swilkins@bnl.gov>  Sun, 18 Oct 2020 07:43:36 -0400
+ -- Stuart B. Wilkins <swilkins@catbert.nsls2.bnl.gov>  Sun, 18 Oct 2020 21:39:46 -0400
