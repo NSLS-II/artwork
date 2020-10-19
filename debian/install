@@ -1,0 +1,2 @@
+#!/usr/bin/dh-exec
+debian/postinst => /usr/share/nsls2/bin/set-beamline-wallpaper

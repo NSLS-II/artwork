@@ -19,7 +19,7 @@ steps:
 - script: |
     sudo apt-get update
     sudo apt-get install git-buildpackage
-    sudo apt-get install debhelper debmake
+    sudo apt-get install debhelper debmake dh-exec
   displayName: 'Install Dependencies'
 
 - script: |

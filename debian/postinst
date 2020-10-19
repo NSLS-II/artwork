@@ -33,9 +33,6 @@ function find_wallpaper()
     find ${wallpaper_dir} -name "${beamline}_*${wallpaper_type}.jpg" -print -quit
 }
 
-echo "$#"
-echo "$1"
-
 if [ "$#" -ge "1" ]; then
     if [ "$1" == "configure" ]; then
         # We are running in as the postinst script
