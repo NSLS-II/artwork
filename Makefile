@@ -10,9 +10,6 @@ libexecdir = $(exec_prefix)/libexec
 wallpapers_beamlines  = $(wildcard wallpapers/beamlines/*.jpg)
 wallpapers_generic    = $(wildcard wallpapers/generic/*.jpg)
 tabs = $(wildcard tabs/*.png)
-setscript = set-wallpaper
-autostart = set-wallpaper.desktop
-binfiles = $(wildcard bin/*)
 
 generic_wallpaper = generic/NSLS-II_Generic_Desktop_Wallpaper_Dark.jpg
 wallpaper_dir = $(datadir)/wallpapers
@@ -23,21 +20,21 @@ export libexecdir
 .PHONY: all
 all:
 
-.PHONY: .install-binfiles
-.install-binfiles: $(binfiles)
+.PHONY: .install-cngscript
+.install-cngscript: bin/nsls2-change-wallpaper
 	mkdir -p $(DESTDIR)$(datadir)/bin
-	install -m 755 -t $(DESTDIR)$(datadir)/bin $(binfiles)
-
-.PHONY: .install-autostart
-.install-autostart: autostart/$(autostart)
-	mkdir -p $(DESTDIR)$(sysconfdir)/xdg/autostart
-	cat $< | envsubst '$${libexecdir}' > $(DESTDIR)$(sysconfdir)/xdg/autostart/$(autostart)
+	install -m 755 -t $(DESTDIR)$(datadir)/bin $<
 
 .PHONY: .install-setscript
-.install-setscript: lib/$(setscript)
-	mkdir -p $(DESTDIR)$(libexecdir)/nsls2
-	cat $< | envsubst '$${wallpaper_dir}' > $(DESTDIR)$(libexecdir)/nsls2/$(setscript)
-	chmod 755 $(DESTDIR)$(libexecdir)/nsls2/$(setscript)
+.install-setscript: bin/set-wallpaper
+	mkdir -p $(DESTDIR)$(datadir)/bin
+	cat $< | envsubst '$${wallpaper_dir}' > $(DESTDIR)$(datadir)/bin/set-wallpaper
+	chmod 755 $(DESTDIR)$(datadir)/bin/set-wallpaper
+
+.PHONY: .install-autostart
+.install-autostart: autostart/set-wallpaper.desktop
+	mkdir -p $(DESTDIR)$(sysconfdir)/xdg/autostart
+	cat $< | envsubst '$${libexecdir}' > $(DESTDIR)$(sysconfdir)/xdg/autostart/set-wallpaper.desktop
 
 .PHONY: .install-tabs
 .install-tabs: $(tabs)
@@ -53,4 +50,4 @@ all:
 	cd $(DESTDIR)$(wallpaper_dir) && ln -sf $(generic_wallpaper) wallpaper.jpg
 
 .PHONY: install
-install: .install-wallpapers .install-tabs .install-setscript .install-autostart .install-binfiles
+install: .install-wallpapers .install-tabs .install-setscript .install-autostart .install-cngscript
