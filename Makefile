@@ -45,4 +45,4 @@ all:
 	cd $(DESTDIR)$(wallpaper_dir) && ln -sf $(generic_wallpaper) wallpaper.jpg
 
 .PHONY: install
-install: .install-wallpapers .install-tabs .install-setscript .install-autostart .install-scripts
+install: .install-wallpapers .install-tabs .install-autostart .install-scripts
