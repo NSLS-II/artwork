@@ -11,6 +11,7 @@ wallpapers_beamlines  = $(wildcard wallpapers/beamlines/*.jpg)
 wallpapers_generic    = $(wildcard wallpapers/generic/*.jpg)
 tabs = $(wildcard tabs/*.png)
 scripts = $(wildcard bin/*)
+autostart = $(wildcard autostart/*.desktop)
 
 generic_wallpaper = generic/NSLS-II_Generic_Desktop_Wallpaper_Dark.jpg
 wallpaper_dir = $(datadir)/wallpapers
@@ -22,12 +23,12 @@ export libexecdir
 all:
 
 .PHONY: .install-scripts
-.install-scripts: bin/nsls2-change-wallpaper
+.install-scripts: $(scripts)
 	mkdir -p $(DESTDIR)$(datadir)/bin
 	install -m 755 -t $(DESTDIR)$(datadir)/bin $?
 
 .PHONY: .install-autostart
-.install-autostart: autostart/set-wallpaper.desktop
+.install-autostart: $(autostart)
 	mkdir -p $(DESTDIR)$(sysconfdir)/xdg/autostart
 	install -m 644 -t $(DESTDIR)$(sysconfdir)/xdg/autostart $?
 
