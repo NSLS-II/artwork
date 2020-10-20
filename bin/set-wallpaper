@@ -7,9 +7,9 @@ XFCONF=/usr/bin/xfconf-query
 if command -v ${GSETTINGS} &> /dev/null
 then
   ${GSETTINGS} set org.gnome.desktop.background picture-uri \
-    'file://${wallpaper_dir}/wallpaper.jpg'
+    'file:///usr/share/nsls2/wallpapers/wallpaper.jpg'
   ${GSETTINGS} set org.cinnamon.desktop.background picture-uri \
-    'file://${wallpaper_dir}/wallpaper.jpg'
+    'file:///usr/share/nsls2/wallpapers/wallpaper.jpg'
 fi
 
 if command -v ${XFCONF} &> /dev/null
@@ -19,6 +19,6 @@ then
     echo ${item}
     ${XFCONF} --channel xfce4-desktop \
       --property ${item} \
-      --set ${wallpaper_dir}/wallpaper.jpg
+      --set /usr/share/nsls2/wallpapers/wallpaper.jpg
   done
 fi

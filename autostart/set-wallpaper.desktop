@@ -2,5 +2,5 @@
 Type=Application
 Name=set-wallpaper
 NoDisplay=true
-Exec=${libexecdir}/nsls2/set-wallpaper
+Exec=/usr/share/nsls2/bin/set-wallpaper
 Terminal=false
