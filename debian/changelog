@@ -1,4 +1,4 @@
-artwork-nsls2 (0.1.5) UNRELEASED; urgency=medium
+artwork-nsls2 (0.1.6) UNRELEASED; urgency=medium
 
   [ Stuart B. Wilkins ]
   * Initial debian test
@@ -59,5 +59,12 @@ artwork-nsls2 (0.1.5) UNRELEASED; urgency=medium
   * Set correct script
   * Add binfiles to install
   * Added make of dir
+  * Added set-wallpaper to postinst
+  * Changed to move out of lib dir
+  * Move into bin
+  * Remove from postinst
+  * Remove need for templates
+  * Fix install targets
+  * Fix targets
 
- -- Stuart B. Wilkins <swilkins@catbert.nsls2.bnl.gov>  Mon, 19 Oct 2020 20:26:23 -0400
+ -- Stuart B. Wilkins <swilkins@catbert.nsls2.bnl.gov>  Tue, 20 Oct 2020 14:52:12 -0400
