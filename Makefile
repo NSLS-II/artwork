@@ -12,6 +12,7 @@ wallpapers_generic    = $(wildcard wallpapers/generic/*.jpg)
 tabs = $(wildcard tabs/*.png)
 setscript = set-wallpaper
 autostart = set-wallpaper.desktop
+binfiles = $(wildcard bin/*)
 
 generic_wallpaper = generic/NSLS-II_Generic_Desktop_Wallpaper_Dark.jpg
 wallpaper_dir = $(datadir)/wallpapers
@@ -22,13 +23,17 @@ export libexecdir
 .PHONY: all
 all:
 
+.PHONY: .install-binfiles
+.install-binfiles: $(binfiles)
+	install -m 644 -t $(DESTDIR)$(datadir)/bin $(binfiles)
+
 .PHONY: .install-autostart
 .install-autostart: autostart/$(autostart)
 	mkdir -p $(DESTDIR)$(sysconfdir)/xdg/autostart
 	cat $< | envsubst '$${libexecdir}' > $(DESTDIR)$(sysconfdir)/xdg/autostart/$(autostart)
 
 .PHONY: .install-setscript
-.install-setscript: bin/$(setscript)
+.install-setscript: lib/$(setscript)
 	mkdir -p $(DESTDIR)$(libexecdir)/nsls2
 	cat $< | envsubst '$${wallpaper_dir}' > $(DESTDIR)$(libexecdir)/nsls2/$(setscript)
 	chmod 755 $(DESTDIR)$(libexecdir)/nsls2/$(setscript)
