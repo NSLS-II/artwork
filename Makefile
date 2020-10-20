@@ -25,6 +25,7 @@ all:
 
 .PHONY: .install-binfiles
 .install-binfiles: $(binfiles)
+	mkdir -p $(DESTDIR)$(datadir)/bin
 	install -m 755 -t $(DESTDIR)$(datadir)/bin $(binfiles)
 
 .PHONY: .install-autostart
