@@ -6,7 +6,7 @@ Version:        0.1.6
 Release:        1%{?dist}
 Summary:        NSLS-II Artwork 
 
-License:        BSD
+License:        Redistributable, no modification permitted
 URL:            https://github.com/NSLS-II/artwork
 Source0:        https://github.com/NSLS-II/artwork/archive/v%{version}/artwork-v%{version}.tar.gz
 
