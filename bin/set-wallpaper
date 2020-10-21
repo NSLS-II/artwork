@@ -4,21 +4,23 @@ GSETTINGS=/usr/bin/gsettings
 XFCONF=/usr/bin/xfconf-query
 
 # Disable the built in screensaver and show wallpaper
-if command -v ${GSETTINGS} &> /dev/null
-then
-  ${GSETTINGS} set org.gnome.desktop.background picture-uri \
-    'file:///usr/share/nsls2/wallpapers/wallpaper.jpg'
-  ${GSETTINGS} set org.cinnamon.desktop.background picture-uri \
-    'file:///usr/share/nsls2/wallpapers/wallpaper.jpg'
+if [ echo "${XDG_CURRENT_DESKTOP}" | grep GNOME ]; then
+  if [ command -v ${GSETTINGS} &> /dev/null ]; then
+    ${GSETTINGS} set org.gnome.desktop.background picture-uri \
+      'file:///usr/share/nsls2/wallpapers/wallpaper.jpg'
+    ${GSETTINGS} set org.cinnamon.desktop.background picture-uri \
+      'file:///usr/share/nsls2/wallpapers/wallpaper.jpg'
+  fi
 fi
 
-if command -v ${XFCONF} &> /dev/null
-then
-  for item in $(${XFCONF} --channel xfce4-desktop --list | grep 'last-image\|image-path')
-  do
-    echo ${item}
-    ${XFCONF} --channel xfce4-desktop \
-      --property ${item} \
-      --set /usr/share/nsls2/wallpapers/wallpaper.jpg
-  done
+if [ echo "${XDG_CURRENT_DESKTOP}" | grep XFCE ]; then
+  if [ command -v ${XFCONF} &> /dev/null ]; then
+    for item in $(${XFCONF} --channel xfce4-desktop --list | grep 'last-image\|image-path')
+    do
+      echo ${item}
+      ${XFCONF} --channel xfce4-desktop \
+        --property ${item} \
+        --set /usr/share/nsls2/wallpapers/wallpaper.jpg
+    done
+  fi
 fi
