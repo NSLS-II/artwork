@@ -31,7 +31,7 @@ make DESTDIR=%{buildroot} \
 
 
 %files
-#%license add-license-file-here
+#%license LICENSE
 %doc README.md
 %{_datadir}/nsls2/bin/nsls2-change-wallpaper
 %{_datadir}/nsls2/bin/set-wallpaper
