@@ -1,7 +1,7 @@
 # As this is only for artwork there is no meaningful debuginfo
 %global debug_package %{nil}
 
-Name:           nsls2-artwork 
+Name:           artwork-nsls2 
 Version:        0.1.6
 Release:        1%{?dist}
 Summary:        NSLS-II Artwork 
@@ -42,5 +42,10 @@ make DESTDIR=%{buildroot} \
 %{_datadir}/nsls2/wallpapers/generic/*.jpg
 
 %changelog
+* Thu Oct 22 2020 Stuart Campbell <scampbell@bnl.gov>
+- Renamed package from nsls2-artwork to artwork-nsls2
+
 * Wed Oct 21 2020 Stuart Campbell <scampbell@bnl.gov>
 - Initial package 
+
+
