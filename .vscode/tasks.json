@@ -8,42 +8,42 @@
             "type": "shell",
             "command": "make",
             "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },{
+            "group": "build"
+        },
+        {
             "label": "Make Build Directory",
-            "problemMatcher" : [],
+            "problemMatcher": [],
             "command": "mkdir",
-            "args" : [
+            "args": [
                 "-p",
                 "${workspaceFolder}/build"
             ]
-        },{
+        },
+        {
             "label": "Fetch Upstream Tarball",
             "group": "build",
-            "problemMatcher" : [],
+            "problemMatcher": [],
             "command": "uscan",
-            "args" : [
+            "args": [
                 "--force-download",
                 "--destdir",
                 "${workspaceFolder}/build"
             ],
             "dependsOn": "Make Build Directory"
-        },{
+        },
+        {
             "label": "Build Debian Package",
             "group": "build",
             "problemMatcher": [],
             "command": "gbp",
-            "args" : [
+            "args": [
                 "buildpackage",
                 "--git-ignore-branch",
                 "-uc",
                 "-us",
                 "--git-tarball-dir=${workspaceFolder}/build",
                 "--git-export-dir=${workspaceFolder}/build"
-            ],
+            ]
         }
     ]
 }
