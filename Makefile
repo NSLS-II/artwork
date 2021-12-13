@@ -10,6 +10,7 @@ libexecdir = $(exec_prefix)/libexec
 wallpapers_beamlines  = $(wildcard wallpapers/beamlines/*.jpg)
 wallpapers_generic    = $(wildcard wallpapers/generic/*.jpg)
 tabs = $(wildcard tabs/*.png)
+photos = $(wildcard photos/*.jpg)
 scripts = $(wildcard bin/*)
 autostart = $(wildcard autostart/*.desktop)
 
@@ -37,6 +38,11 @@ all:
 	mkdir -p $(DESTDIR)$(datadir)/tabs
 	install -m 644 -t $(DESTDIR)$(datadir)/tabs $?
 
+.PHONY: .install-photos
+.install-tabs: $(photos)
+	mkdir -p $(DESTDIR)$(datadir)/photos
+	install -m 644 -t $(DESTDIR)$(datadir)/photos $?
+
 .PHONY: .install-wallpapers
 .install-wallpapers: $(wallpapers)
 	mkdir -p $(DESTDIR)$(wallpaper_dir)/generic
@@ -46,4 +52,4 @@ all:
 	cd $(DESTDIR)$(wallpaper_dir) && ln -sf $(generic_wallpaper) wallpaper.jpg
 
 .PHONY: install
-install: .install-wallpapers .install-tabs .install-autostart .install-scripts
+install: .install-wallpapers .install-tabs .install-autostart .install-scripts .install-photos
