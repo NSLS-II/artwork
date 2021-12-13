@@ -39,7 +39,7 @@ all:
 	install -m 644 -t $(DESTDIR)$(datadir)/tabs $?
 
 .PHONY: .install-photos
-.install-tabs: $(photos)
+.install-photos: $(photos)
 	mkdir -p $(DESTDIR)$(datadir)/photos
 	install -m 644 -t $(DESTDIR)$(datadir)/photos $?
 

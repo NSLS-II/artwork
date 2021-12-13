@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:           artwork
-Version:        0.1.7
+Version:        0.1.8
 Release:        1%{?dist}
 Summary:        NSLS-II Artwork 
 
@@ -37,6 +37,7 @@ make DESTDIR=%{buildroot} \
 %{_datadir}/nsls2/bin/set-wallpaper
 %{_sysconfdir}/xdg/autostart/set-wallpaper.desktop
 %{_datadir}/nsls2/tabs/*.png
+%{_datadir}/nsls2/photos/*.jpg
 %{_datadir}/nsls2/wallpapers/wallpaper.jpg
 %{_datadir}/nsls2/wallpapers/beamlines/*.jpg
 %{_datadir}/nsls2/wallpapers/generic/*.jpg
