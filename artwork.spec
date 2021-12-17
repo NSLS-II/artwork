@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:           artwork
-Version:        0.1.8
+Version:        0.1.9
 Release:        1%{?dist}
 Summary:        NSLS-II Artwork 
 
@@ -29,6 +29,8 @@ make DESTDIR=%{buildroot} \
      sysconfdir=%{_sysconfdir} \
      install
 
+%post
+%{_datadir}/nsls2/bin/nsls2-change-wallpaper
 
 %files
 #%license LICENSE
@@ -43,6 +45,10 @@ make DESTDIR=%{buildroot} \
 %{_datadir}/nsls2/wallpapers/generic/*.jpg
 
 %changelog
+* Fri Dec 17 2021 Stuart B. Wilkins <swilkins@bnl.gov>
+- Added post install script to spec file
+- Updated XFP wallpaper to correct long name
+
 * Mon Dec 13 2021 Stuart B. Wilkins <swilkins@bnl.gov>
 - Renamed package from nsls2-artwork to artwork
 - Added photos dir
