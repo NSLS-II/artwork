@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:           artwork
-Version:        0.1.9
+Version:        0.2.0
 Release:        1%{?dist}
 Summary:        NSLS-II Artwork 
 
@@ -45,6 +45,9 @@ make DESTDIR=%{buildroot} \
 %{_datadir}/nsls2/wallpapers/generic/*.jpg
 
 %changelog
+* Fri Sep 30 2022 Stuart Campbell <scampbell@bnl.gov> 0.2.0-1
+- Updated all the wallpapers for the NSLS-II Rebranding
+
 * Fri Dec 17 2021 Stuart B. Wilkins <swilkins@bnl.gov>
 - Added post install script to spec file
 - Updated XFP wallpaper to correct long name
