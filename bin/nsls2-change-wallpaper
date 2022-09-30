@@ -30,7 +30,7 @@ function set_wallpaper
 function find_wallpaper()
 {
     local beamline="$1"
-    find ${wallpaper_dir} -name "${beamline}_*${wallpaper_type}.jpg" -print -quit
+    find ${wallpaper_dir} -name "${beamline}_*.jpg" -print -quit
 }
 
 if [ "$#" -eq "1" ]; then
@@ -42,7 +42,6 @@ else
 fi
 
 wallpaper_dir="/usr/share/nsls2/wallpapers"
-wallpaper_type="Dark"
 wallpaper_default="wallpaper.jpg"
 
 if [ "${hostname:0:2}" != "xf" ]; then
