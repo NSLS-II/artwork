@@ -11,6 +11,14 @@ function link_wallpaper
     cd "${path}" && ln -svf ${type}/${name} ${wallpaper_default}
 }
 
+function set_default_for_control_room
+{
+    local file="$(find_wallpaper Control_Room)"
+    echo "Setting default NSLS-II Control Room wallpaper -> ${file}"
+    link_wallpaper "${file}"
+    exit 0
+}
+
 function set_default
 {
     local file="$(find_wallpaper NSLS-II_Generic)"
@@ -43,6 +51,11 @@ fi
 
 wallpaper_dir="/usr/share/nsls2/wallpapers"
 wallpaper_default="wallpaper.jpg"
+
+if [ "${hostname:0:5}" = "cdesk" ]; then
+	echo "Hostname seems to in Control Room, setting Control Room default..."
+	set_default_for_control_room
+fi
 
 if [ "${hostname:0:2}" != "xf" ]; then
     echo "Hostname not NSLS-II standard, setting default...."
