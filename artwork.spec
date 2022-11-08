@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:           artwork
-Version:        0.2.0
+Version:        0.2.1
 Release:        1%{?dist}
 Summary:        NSLS-II Artwork 
 
@@ -45,6 +45,9 @@ make DESTDIR=%{buildroot} \
 %{_datadir}/nsls2/wallpapers/generic/*.jpg
 
 %changelog
+* Tue Nov 08 2022 Stuart Campbell <scampbell@bnl.gov> 0.2.1-1
+- Added some more photos
+
 * Fri Sep 30 2022 Stuart Campbell <scampbell@bnl.gov> 0.2.0-1
 - Updated all the wallpapers for the NSLS-II Rebranding
 
