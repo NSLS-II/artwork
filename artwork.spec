@@ -3,14 +3,14 @@
 
 Name:           artwork
 Version:        0.2.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NSLS-II Artwork
 
 License:        Redistributable, no modification permitted
 URL:            https://github.com/NSLS-II/artwork
 Source0:        https://github.com/NSLS-II/artwork/archive/v%{version}/artwork-v%{version}.tar.gz
 
-#BuildRequires:
+BuildRequires: make
 #Requires:
 
 %description
@@ -45,6 +45,9 @@ make DESTDIR=%{buildroot} \
 %{_datadir}/nsls2/wallpapers/generic/*.jpg
 
 %changelog
+* Mon Jun 02 2025 Stuart Campbell <scampbell@bnl.gov> - 0.2.2-2
+- Add make to build dependencies
+
 * Wed Aug 14 2024 Gavrilov, Dmitri <dgavrilov@bnl.gov> - 0.2.2-1
 - Added new artwork for CDI, ARI, and SXN beamlines
 
