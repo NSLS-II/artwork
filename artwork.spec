@@ -2,8 +2,8 @@
 %global debug_package %{nil}
 
 Name:           artwork
-Version:        0.2.2
-Release:        2%{?dist}
+Version:        0.2.3
+Release:        1%{?dist}
 Summary:        NSLS-II Artwork
 
 License:        Redistributable, no modification permitted
@@ -45,6 +45,9 @@ make DESTDIR=%{buildroot} \
 %{_datadir}/nsls2/wallpapers/generic/*.jpg
 
 %changelog
+* Tue Jun 03 2025 Dmitri Gavrilov <dgavrilov@bnl.gov> - 0.2.3-1
+- Update the wallpaper for CDI beamline
+
 * Mon Jun 02 2025 Stuart Campbell <scampbell@bnl.gov> - 0.2.2-2
 - Add make to build dependencies
 
